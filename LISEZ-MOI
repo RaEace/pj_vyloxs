@@ -1,0 +1,92 @@
+Sujet Site : 
+    https://bjobard.perso.univ-pau.fr/Cours/DAI/Projet.html
+
+Fonctionnement de SAM :
+    https://sam.js.org/
+
+CSS :
+    https://www.beercss.com/
+
+
+Faire l'affichage du Model:
+Initaliser les valeurs dans un premier temps pour voir si tout fonctionne normalement et faire les interractions dans un second temps
+Diviser le fichier en plusieurs fichiers?
+Outline ---> permet de voir toutes les parties et les fonctions du fichiers (gain de temps / sommaire)
+
+
+Fonctionnement de l'application
+
+L'application permet de :
+
+    -filtrer les articles selon leur catégories et origines ;
+    -rechercher les articles incluant une chaîne de caractère ; /* Departement - TD3*/
+    -afficher le nombre d'articles filtrés et les filtres associés ;
+    -visionner les articles sous forme d'une grille ou d'une liste ;
+    -de définir le nombre de lignes par page ;
+    -de passer d'une page à l'autre ;
+    -de saisir la quantité souhaité d'un article ;
+    -de l'ajouter au panier ;
+    -de modifier la quantité d'un article déjà dans le panier ;
+    -de régler des paramètres
+    -d'afficher le panier montrant :
+        -le récapitulatif de la commande ;
+        -le montant total par article ;
+        -le montant total de la commande ;
+    -et dont on peut :
+        -modifier la quantité de chaque article ;
+        -sélectionner des lignes pour les effacer ;
+        -envoyer le récapitulatif sous forme de mail.
+
+
+
+Voici les fonctionnalités qui seront évaluées :
+
+    -Une interface graphique reflétant toutes les données du modèle :
+        -votre(vos) nom(s) depuis le bouton utilisateur ✔
+        -Filtres :
+            -toutes les catégories et origines présentes dans les articles
+            -les checkbox "Toutes" reflétant l'état d'activation des filtres
+            -le nombre d'articles pour chaque filtre et "Toutes"
+            -la recherche globale ou non
+            -le texte à rechercher
+            -le nombre d'articles suite à l'application des filtres
+            -les filtres et recherche actifs
+        -Articles sur grille ou en liste :
+            -les informations de chaque articles (image, nom, origine, prix unitaire, quantité)
+            -l'image présente ou non en fonction du paramètre "Articles avec images"
+            -le bon formatage de la boite de saisie de la quantité et du bouton Ajout/Édition
+            -Pagination :
+                -un bouton pour chaque page
+                -le bon formatage des boutons inactifs
+                -le nombre de lignes par page
+        -Panier :
+            -les articles mis dans le panier et les informations correspondantes
+            -le calcul des totaux
+            -l'état d'activation des boutons de suppression et d'envoi de la commande
+            -le tri des article selon la colonne précisée dans le modèle
+        -Courrier de commande :
+            -le(s) nom(s) du(des) client(s)
+            -le total de la commande
+            -le nom des articles et leur quantité
+    -Une interface graphique réagissant aux sollicitations de l'utilisateur :
+        -modification des informations de filtrage
+        -exactitude des données filtrées
+        -saisie ou édition de la quantité des articles
+        -ajout d'un article au panier
+        -modification des quantités dans le panier et eventuellement suppression si nulles
+        -suppression des lignes sélectionnées
+        -tri des articles selon la colonne cliquée
+        -comportement de la pagination conforme à la démonstration
+
+
+Enlever un item :
+
+    ---Action
+    removeDoneItems() {
+    model.samPresent({ do: 'removeDoneItems' });
+  },
+
+    ---Model
+    case 'removeDoneItems':
+        this.items = this.items.filter((v, i, a) => v.done == false); // Le tableau est remplacé par une version filtrée du tableau (sans les tâches faites)
+        break;
